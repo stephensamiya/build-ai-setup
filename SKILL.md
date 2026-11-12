@@ -5,7 +5,7 @@ disable-model-invocation: true
 ---
 # Build the AI setup that learns
 
-This skill installs the system from the 10-part series "Building an AI setup that learns". Each install stage matches one part. `scripts/install.sh` does the file work: it creates files, links skills and hooks, and merges JSON configs. Your job is to interview the user, show the plan, run the script, personalize the files, and verify the result.
+This skill installs the system from the 3-part series "Building an AI setup that learns". It has ten install stages, and each stage matches one section of a post. `scripts/install.sh` does the file work: it creates files, links skills and hooks, and merges JSON configs. Your job is to interview the user, show the plan, run the script, personalize the files, and verify the result.
 
 ## Rules
 
@@ -41,7 +41,7 @@ Ask these questions, using a multiple-choice question tool if you have one:
 
 1. Which tools: Cursor, Claude Code, or both? (Maps to `--tools cursor|claude|both`.)
 2. Where should the context folder live? Default `~/ai-context`. (`--root`)
-3. Which stages? Default all ten. Suggest 1 to 6 for a first evening, because 7 to 9 run things unattended. (`--stages`)
+3. Which stages? Default all ten. Suggest 1 to 6 (parts 1 and 2) for a first evening, because 7 to 9 run things unattended. (`--stages`)
 4. Stage 5: which local git project and which GitHub repository should `today.sh` read? Skip if they don't use GitHub. (`--project`, `--repo`)
 5. Stage 7: should the evening drafts use `claude` or Cursor's `agent`? Should the script add the 4:45 PM weekday cron job, or will they add it later? (`--cli`, `--cron`)
 6. Stage 8: is there a project with a test command where they want the loop kit? (`--loop-project`)
@@ -110,15 +110,15 @@ Each edited config has a `.bak-ai-setup` copy next to it. Restore it to undo the
 
 ## Stages and parts
 
-| Stage | Part | Installs |
+| Stage | Part and section | Installs |
 |---|---|---|
-| 1 | Files are the memory | Context folder, `memory/always.md`, `CLAUDE.md` import |
-| 2 | Teach once | Teach-once rule, `docs/tips.md`, `/review-diff`, `tools/link-all.sh` |
-| 3 | Context rot | `handoffs/`, `/handoff`, loader template |
-| 4 | Trustworthy notes | Tip ID rules, `tools/lint.sh`, `/notes-checkup` |
-| 5 | Evidence over memory | Evidence rule, `tools/today.sh`, `/status-update` |
-| 6 | Guardrails | Safety rule, Claude Code deny rules, Cursor guard and session-start hooks |
-| 7 | Status updates | Prompt logging hook, `prompts/draft-updates.md`, `tools/evening-drafts.sh`, `/morning`, optional cron job |
-| 8 | Gated loops | `GOAL.md`, `check.sh`, `loop.sh` in the chosen project |
-| 9 | Cloud or local | `tools/share-tips.sh` |
-| 10 | Correction ladder | Weekly ladder step in `/notes-checkup` |
+| 1 | 1. Memory: Files are the memory | Context folder, `memory/always.md`, `CLAUDE.md` import |
+| 2 | 1. Memory: Teach once | Teach-once rule, `docs/tips.md`, `/review-diff`, `tools/link-all.sh` |
+| 3 | 1. Memory: Keep context small and chats short | `handoffs/`, `/handoff`, loader template |
+| 4 | 2. Trust: Notes that show where they're wrong | Tip ID rules, `tools/lint.sh`, `/notes-checkup` |
+| 5 | 2. Trust: Evidence over memory | Evidence rule, `tools/today.sh`, `/status-update` |
+| 6 | 2. Trust: Guardrails the tools enforce | Safety rule, Claude Code deny rules, Cursor guard and session-start hooks |
+| 7 | 3. Automation: Status updates you approve once a day | Prompt logging hook, `prompts/draft-updates.md`, `tools/evening-drafts.sh`, `/morning`, optional cron job |
+| 8 | 3. Automation: Only loop what a machine can judge | `GOAL.md`, `check.sh`, `loop.sh` in the chosen project |
+| 9 | 3. Automation: Cloud or local? | `tools/share-tips.sh` |
+| 10 | 3. Automation: The correction ladder | Weekly ladder step in `/notes-checkup` |

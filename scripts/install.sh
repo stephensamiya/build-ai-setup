@@ -1,5 +1,5 @@
 #!/bin/bash
-# Install the "AI setup that learns" files stage by stage (stages match parts 1 to 10).
+# Install the "AI setup that learns" files stage by stage (ten stages across the three parts of the series).
 # Safe to rerun: never overwrites an existing file, backs up any config it edits,
 # and only adds JSON entries that are missing. Use --dry-run to see the plan first.
 set -u
@@ -251,7 +251,7 @@ if want 8; then
     put loop/GOAL.md "$loop_project/GOAL.md"
     put loop/check.sh "$loop_project/check.sh" 755
     put loop/loop.sh "$loop_project/loop.sh" 755
-    note "Loop: smoke-test check.sh and loop.sh on a planted defect before any real run (part 8, steps 4 and 5)."
+    note "Loop: smoke-test check.sh and loop.sh on a planted defect before any real run (part 3, "Only loop what a machine can judge")."
   else
     say "skip: no --loop-project given"
   fi

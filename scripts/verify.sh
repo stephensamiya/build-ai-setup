@@ -31,7 +31,7 @@ if uses claude; then
   check "~/.claude/CLAUDE.md imports always.md" 'grep -qxF "@$rootref/memory/always.md" "$HOME/.claude/CLAUDE.md" || grep -qxF "@$root/memory/always.md" "$HOME/.claude/CLAUDE.md"'
 fi
 n=$(wc -l < "$root/memory/always.md" 2>/dev/null || echo 0)
-[ "$n" -le 100 ] && pass "always.md is $n lines (keep it under about 100)" || fail "always.md is $n lines; move area context and facts out (part 3)"
+[ "$n" -le 100 ] && pass "always.md is $n lines (keep it under about 100)" || fail "always.md is $n lines; move area context and facts out (part 1, "Keep context small")"
 
 echo "== Stage 2 and later: saved commands"
 if [ -d "$root/skills" ]; then
